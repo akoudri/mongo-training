@@ -1,0 +1,181 @@
+services:
+  # Config Server Replica Set
+  configsvr1:
+    image: mongo:7.0
+    container_name: configsvr1
+    command: mongod --configsvr --replSet configrs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - configsvr1_data:/data/db
+    ports:
+      - "27019:27017"
+    networks:
+      - mongodb-network
+
+  configsvr2:
+    image: mongo:7.0
+    container_name: configsvr2
+    command: mongod --configsvr --replSet configrs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - configsvr2_data:/data/db
+    ports:
+      - "27020:27017"
+    networks:
+      - mongodb-network
+
+  configsvr3:
+    image: mongo:7.0
+    container_name: configsvr3
+    command: mongod --configsvr --replSet configrs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - configsvr3_data:/data/db
+    ports:
+      - "27021:27017"
+    networks:
+      - mongodb-network
+
+  # Shard 1 Replica Set
+  shard1svr1:
+    image: mongo:7.0
+    container_name: shard1svr1
+    command: mongod --shardsvr --replSet shard1rs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - shard1svr1_data:/data/db
+    ports:
+      - "27022:27017"
+    networks:
+      - mongodb-network
+
+  shard1svr2:
+    image: mongo:7.0
+    container_name: shard1svr2
+    command: mongod --shardsvr --replSet shard1rs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - shard1svr2_data:/data/db
+    ports:
+      - "27023:27017"
+    networks:
+      - mongodb-network
+
+  shard1svr3:
+    image: mongo:7.0
+    container_name: shard1svr3
+    command: mongod --shardsvr --replSet shard1rs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - shard1svr3_data:/data/db
+    ports:
+      - "27024:27017"
+    networks:
+      - mongodb-network
+
+  # Shard 2 Replica Set
+  shard2svr1:
+    image: mongo:7.0
+    container_name: shard2svr1
+    command: mongod --shardsvr --replSet shard2rs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - shard2svr1_data:/data/db
+    ports:
+      - "27025:27017"
+    networks:
+      - mongodb-network
+
+  shard2svr2:
+    image: mongo:7.0
+    container_name: shard2svr2
+    command: mongod --shardsvr --replSet shard2rs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - shard2svr2_data:/data/db
+    ports:
+      - "27026:27017"
+    networks:
+      - mongodb-network
+
+  shard2svr3:
+    image: mongo:7.0
+    container_name: shard2svr3
+    command: mongod --shardsvr --replSet shard2rs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - shard2svr3_data:/data/db
+    ports:
+      - "27027:27017"
+    networks:
+      - mongodb-network
+
+  # Shard 3 Replica Set
+  shard3svr1:
+    image: mongo:7.0
+    container_name: shard3svr1
+    command: mongod --shardsvr --replSet shard3rs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - shard3svr1_data:/data/db
+    ports:
+      - "27028:27017"
+    networks:
+      - mongodb-network
+
+  shard3svr2:
+    image: mongo:7.0
+    container_name: shard3svr2
+    command: mongod --shardsvr --replSet shard3rs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - shard3svr2_data:/data/db
+    ports:
+      - "27029:27017"
+    networks:
+      - mongodb-network
+
+  shard3svr3:
+    image: mongo:7.0
+    container_name: shard3svr3
+    command: mongod --shardsvr --replSet shard3rs --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - shard3svr3_data:/data/db
+    ports:
+      - "27030:27017"
+    networks:
+      - mongodb-network
+
+  # Mongos Router
+  mongos1:
+    image: mongo:7.0
+    container_name: mongos1
+    command: mongos --configdb configrs/configsvr1:27017,configsvr2:27017,configsvr3:27017 --port 27017 --bind_ip_all
+    ports:
+      - "27017:27017"
+    networks:
+      - mongodb-network
+    depends_on:
+      - configsvr1
+      - configsvr2
+      - configsvr3
+
+  mongos2:
+    image: mongo:7.0
+    container_name: mongos2
+    command: mongos --configdb configrs/configsvr1:27017,configsvr2:27017,configsvr3:27017 --port 27017 --bind_ip_all
+    ports:
+      - "27018:27017"
+    networks:
+      - mongodb-network
+    depends_on:
+      - configsvr1
+      - configsvr2
+      - configsvr3
+
+volumes:
+  configsvr1_data:
+  configsvr2_data:
+  configsvr3_data:
+  shard1svr1_data:
+  shard1svr2_data:
+  shard1svr3_data:
+  shard2svr1_data:
+  shard2svr2_data:
+  shard2svr3_data:
+  shard3svr1_data:
+  shard3svr2_data:
+  shard3svr3_data:
+
+networks:
+  mongodb-network:
+    driver: bridge
