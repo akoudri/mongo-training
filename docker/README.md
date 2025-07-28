@@ -10,6 +10,7 @@ This setup creates a MongoDB sharded cluster with the following components:
   - Shard 2: `shard2rs` (shard2svr1, shard2svr2, shard2svr3)
   - Shard 3: `shard3rs` (shard3svr1, shard3svr2, shard3svr3)
 - **2 Mongos Routers** (mongos1, mongos2)
+- **MongoDB Compass** (Web-based GUI) - adminmongo interface
 
 ## Authentication
 
@@ -21,6 +22,7 @@ This setup creates a MongoDB sharded cluster with the following components:
 - **Mongos Routers**: 
   - mongos1: `localhost:27017`
   - mongos2: `localhost:27018`
+- **MongoDB Compass Web UI**: `localhost:8081`
 - **Config Servers**: `localhost:27019-27021`
 - **Shard Servers**: `localhost:27022-27030`
 
@@ -40,6 +42,11 @@ This setup creates a MongoDB sharded cluster with the following components:
    ```bash
    mongosh mongodb://admin:password123@localhost:27017/admin
    ```
+
+4. **Access MongoDB Compass Web UI**:
+   - Open your browser and go to: `http://localhost:8081`
+   - You'll need to manually add a connection to your mongos router
+   - Connection details: `mongodb://mongos1:27017` (or use `mongos2:27017` for the secondary router)
 
 ## Useful Commands
 
@@ -94,20 +101,30 @@ sudo apt install -y mongodb-mongosh mongodb-org-tools
 
 ## Connecting
 
-# Connect to primary mongos
+### Command Line Access
 ```bash
+# Connect to primary mongos
 mongosh mongodb://localhost:27017
-```
 
 # Connect to secondary mongos
-```bash
 mongosh mongodb://localhost:27018
-```
 
 # Check cluster status
-```bash
 mongosh mongodb://localhost:27017 --eval "sh.status()"
 ```
+
+### Web-based Access
+- **MongoDB Compass Web UI**: Access `http://localhost:8081` in your browser
+- **Initial Setup**: On first access, add a new connection with:
+  - Connection Name: `MongoDB Sharded Cluster`
+  - Connection String: `mongodb://mongos1:27017`
+  - Leave authentication fields empty (no auth configured)
+- The web interface provides:
+  - Visual database exploration
+  - Collection browsing and editing
+  - Query building and execution
+  - Index management
+  - Real-time performance metrics
 
 ## Scaling
 

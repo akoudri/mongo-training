@@ -143,7 +143,9 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - mongodb-network
+      mongodb-network:
+        aliases:
+          - mongo
     depends_on:
       - configsvr1
       - configsvr2
@@ -161,6 +163,22 @@ services:
       - configsvr1
       - configsvr2
       - configsvr3
+
+  # MongoDB Compass - Web-based GUI using Adminmongo
+  mongo-compass:
+    image: mrvautin/adminmongo:latest
+    container_name: mongo-compass
+    restart: unless-stopped
+    ports:
+      - "8081:1234"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=1234
+    networks:
+      - mongodb-network
+    depends_on:
+      - mongos1
+      - mongos2
 
 volumes:
   configsvr1_data:
