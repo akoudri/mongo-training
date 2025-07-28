@@ -2,4 +2,6 @@
 .zencoder
 .mvn
 mvn*
+target
+.idea
 
