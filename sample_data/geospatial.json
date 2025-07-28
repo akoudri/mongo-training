@@ -1,0 +1,2104 @@
+{
+  "shipwrecks": [
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8dc"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-246-2015",
+      "latdec": 18.1898632,
+      "londec": -73.7465439,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -73.7465439,
+        18.1898632
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8ca"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1083/14",
+      "latdec": 9.3641392,
+      "londec": -79.940556,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -79.940556,
+        9.3641392
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8d6"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1218/15",
+      "latdec": 9.5690002,
+      "londec": -79.0378342,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -79.0378342,
+        9.5690002
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8e2"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5600472,
+      "londec": -72.3600616,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "2 wrecks",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3600616,
+        18.5600472
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed90d"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 17362",
+      "latdec": 57.4732684,
+      "londec": -133.9351903,
+      "gp_quality": "",
+      "depth": 18.2,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "least depth known",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -133.9351903,
+        57.4732684
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8d1"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-781/15",
+      "latdec": 9.4007778,
+      "londec": -79.9196389,
+      "gp_quality": "",
+      "depth": 15.1,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.9196389,
+        9.4007778
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8cc"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-1-2015",
+      "latdec": 9.3751667,
+      "londec": -79.9005,
+      "gp_quality": "",
+      "depth": 4,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.9005,
+        9.3751667
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8e0"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5800037,
+      "londec": -72.3866577,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3866577,
+        18.5800037
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8e1"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5628262,
+      "londec": -72.4051361,
+      "gp_quality": "",
+      "depth": 18.7,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -72.4051361,
+        18.5628262
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8e3"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5549297,
+      "londec": -72.3545532,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "more than one",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -72.3545532,
+        18.5549297
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8e4"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5439014,
+      "londec": -72.3890228,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3890228,
+        18.5439014
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8e5"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5443325,
+      "londec": -72.3885879,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3885879,
+        18.5443325
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8e9"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5926552,
+      "londec": -72.3938522,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3938522,
+        18.5926552
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8ef"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5649262,
+      "londec": -72.3520813,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3520813,
+        18.5649262
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8fd"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,U1,graph,DNC H1415410",
+      "latdec": 8.923214,
+      "londec": -79.5195465,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.5195465,
+        8.923214
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed909"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 17322",
+      "latdec": 57.6620788,
+      "londec": -136.0946038,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -136.0946038,
+        57.6620788
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed90a"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 17331",
+      "latdec": 56.254432,
+      "londec": -134.648336,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -134.648336,
+        56.254432
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed90c"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 17331",
+      "latdec": 56.254019,
+      "londec": -134.649606,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -134.649606,
+        56.254019
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed90e"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 17367",
+      "latdec": 57.0781708,
+      "londec": -132.7989036,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -132.7989036,
+        57.0781708
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8c9"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,U1,graph,DNC H1409860",
+      "latdec": 9.3314219,
+      "londec": -79.9361496,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.9361496,
+        9.3314219
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8c8"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,U1,graph,DNC H1409860",
+      "latdec": 9.3418808,
+      "londec": -79.9103851,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.9103851,
+        9.3418808
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8c7"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,U1,graph,DNC H1409860",
+      "latdec": 9.3390503,
+      "londec": -79.9137115,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -79.9137115,
+        9.3390503
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8db"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.2261219,
+      "londec": -72.5329208,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.5329208,
+        18.2261219
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8d8"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1218/15",
+      "latdec": 9.5544777,
+      "londec": -78.943573,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -78.943573,
+        9.5544777
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8de"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.53689,
+      "londec": -72.3630676,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -72.3630676,
+        18.53689
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8f5"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 19.4500485,
+      "londec": -72.7024383,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.7024383,
+        19.4500485
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8f4"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 19.4533711,
+      "londec": -72.7012787,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "wrecks",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.7012787,
+        19.4533711
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8c5"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,U1,graph,DNC H1409860",
+      "latdec": 9.3340302,
+      "londec": -79.9357223,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -79.9357223,
+        9.3340302
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8da"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.2282791,
+      "londec": -72.5341797,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.5341797,
+        18.2282791
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8d0"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1-2015",
+      "latdec": 9.3549722,
+      "londec": -79.9084167,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -79.9084167,
+        9.3549722
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8d7"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1218/15",
+      "latdec": 9.5574865,
+      "londec": -78.8790131,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -78.8790131,
+        9.5574865
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8e6"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.547678,
+      "londec": -72.3946228,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3946228,
+        18.547678
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed90b"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 17331",
+      "latdec": 56.2536348,
+      "londec": -134.650073,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -134.650073,
+        56.2536348
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed911"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 16712",
+      "latdec": 60.719757,
+      "londec": -147.417515,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -147.417515,
+        60.719757
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8dd"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-246-2015",
+      "latdec": 18.1843109,
+      "londec": -73.7449264,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -73.7449264,
+        18.1843109
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8cb"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-1-2015",
+      "latdec": 9.3723889,
+      "londec": -79.9005833,
+      "gp_quality": "",
+      "depth": 2.2,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.9005833,
+        9.3723889
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8f6"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 19.4491062,
+      "londec": -72.7023773,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -72.7023773,
+        19.4491062
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed910"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 17370",
+      "latdec": 56.6179893,
+      "londec": -134.187136,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -134.187136,
+        56.6179893
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed912"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 16662",
+      "latdec": 60.516213,
+      "londec": -151.346957,
+      "gp_quality": "",
+      "depth": 5.1,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "least depth known",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -151.346957,
+        60.516213
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8ec"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5640431,
+      "londec": -72.3525848,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3525848,
+        18.5640431
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8f3"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 19.1230888,
+      "londec": -72.7002716,
+      "gp_quality": "",
+      "depth": 0.3,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -72.7002716,
+        19.1230888
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8df"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5343819,
+      "londec": -72.3792343,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "4 wrecks",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3792343,
+        18.5343819
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8ea"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.581707,
+      "londec": -72.3883438,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3883438,
+        18.581707
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8f0"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5645046,
+      "londec": -72.3516617,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3516617,
+        18.5645046
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8f2"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 19.1051006,
+      "londec": -72.7045822,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.7045822,
+        19.1051006
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8cd"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1-2015",
+      "latdec": 9.3601389,
+      "londec": -79.9081389,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -79.9081389,
+        9.3601389
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8c4"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,U1,graph,DNC H1409860",
+      "latdec": 9.3547792,
+      "londec": -79.9081268,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -79.9081268,
+        9.3547792
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8c6"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,U1,graph,DNC H1409860",
+      "latdec": 9.3560572,
+      "londec": -79.9074173,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.9074173,
+        9.3560572
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8ce"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,U1,graph,DNC H1409860",
+      "latdec": 9.3729954,
+      "londec": -79.9469681,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -79.9469681,
+        9.3729954
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8cf"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-1-2015",
+      "latdec": 9.3560556,
+      "londec": -79.9089722,
+      "gp_quality": "",
+      "depth": 2.5,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.9089722,
+        9.3560556
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8ee"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5648041,
+      "londec": -72.3523407,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3523407,
+        18.5648041
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8d2"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, nondangerous",
+      "chart": "US,US,reprt,L-781/15",
+      "latdec": 9.4171667,
+      "londec": -79.93025,
+      "gp_quality": "",
+      "depth": 30.3,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.93025,
+        9.4171667
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8e8"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5937481,
+      "londec": -72.396492,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.396492,
+        18.5937481
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8eb"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5553036,
+      "londec": -72.348053,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.348053,
+        18.5553036
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8f7"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 19.4484844,
+      "londec": -72.7018204,
+      "gp_quality": "",
+      "depth": 3.6,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -72.7018204,
+        19.4484844
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed907"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 17322",
+      "latdec": 57.612355,
+      "londec": -136.133004,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -136.133004,
+        57.612355
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8ff"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,U1,graph,DNC H1415410",
+      "latdec": 8.8728724,
+      "londec": -79.5571594,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.5571594,
+        8.8728724
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8e7"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5881729,
+      "londec": -72.4106674,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.4106674,
+        18.5881729
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8f8"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 19.4474258,
+      "londec": -72.6970673,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "wrecks",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -72.6970673,
+        19.4474258
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8d3"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, nondangerous",
+      "chart": "US,US,reprt,L-781/15",
+      "latdec": 9.4187222,
+      "londec": -79.9283333,
+      "gp_quality": "",
+      "depth": 32,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.9283333,
+        9.4187222
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8d9"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.2312794,
+      "londec": -72.5419922,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.5419922,
+        18.2312794
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8f1"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5693398,
+      "londec": -72.3570557,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3570557,
+        18.5693398
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8ed"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 18.5644321,
+      "londec": -72.3526001,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.3526001,
+        18.5644321
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8d4"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,DD-26697",
+      "latdec": 9.3958694,
+      "londec": -79.9229861,
+      "gp_quality": "",
+      "depth": 12.3,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.9229861,
+        9.3958694
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed944"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 17326",
+      "latdec": 56.7980577,
+      "londec": -135.1858955,
+      "gp_quality": "",
+      "depth": 38.4,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "least depth known",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -135.1858955,
+        56.7980577
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed905"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, nondangerous",
+      "chart": "US,US,graph,Chart 17303",
+      "latdec": 57.9445378,
+      "londec": -136.6567145,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -136.6567145,
+        57.9445378
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed902"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,U1,graph,DNC H1415410",
+      "latdec": 8.7999086,
+      "londec": -79.5539856,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -79.5539856,
+        8.7999086
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed915"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 16646",
+      "latdec": 59.6104645,
+      "londec": -151.4383088,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -151.4383088,
+        59.6104645
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed917"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 16646",
+      "latdec": 59.3201991,
+      "londec": -151.9929969,
+      "gp_quality": "",
+      "depth": 8.8,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "value reported (not confirmed)",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -151.9929969,
+        59.3201991
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed901"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,U1,graph,DNC H1415410",
+      "latdec": 8.9507504,
+      "londec": -79.5722198,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -79.5722198,
+        8.9507504
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed91c"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 16646",
+      "latdec": 59.4454832,
+      "londec": -151.7377579,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -151.7377579,
+        59.4454832
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed908"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 17331",
+      "latdec": 56.2538478,
+      "londec": -134.6503202,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -134.6503202,
+        56.2538478
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed914"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 16646",
+      "latdec": 59.6091268,
+      "londec": -151.4358916,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -151.4358916,
+        59.6091268
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed900"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,U1,graph,DNC H1415410",
+      "latdec": 8.8552675,
+      "londec": -79.5541916,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "reported in 2004",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -79.5541916,
+        8.8552675
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed916"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 16646",
+      "latdec": 59.6102251,
+      "londec": -151.4378285,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -151.4378285,
+        59.6102251
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed938"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 17315",
+      "latdec": 58.3052314,
+      "londec": -134.4356697,
+      "gp_quality": "",
+      "depth": 2.7,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "least depth known",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -134.4356697,
+        58.3052314
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed90f"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 17370",
+      "latdec": 56.6089607,
+      "londec": -134.2126352,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -134.2126352,
+        56.6089607
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed91b"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 16646",
+      "latdec": 59.4460678,
+      "londec": -151.7400253,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -151.7400253,
+        59.4460678
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed93c"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 17312",
+      "latdec": 58.118588,
+      "londec": -134.754662,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -134.754662,
+        58.118588
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8fb"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 19.7573872,
+      "londec": -72.1437149,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.1437149,
+        19.7573872
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed92b"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 16710",
+      "latdec": 60.5652286,
+      "londec": -145.745127,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -145.745127,
+        60.5652286
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed92c"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,H-11497",
+      "latdec": 60.5494755,
+      "londec": -145.7747997,
+      "gp_quality": "",
+      "depth": 4.8,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "least depth known",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -145.7747997,
+        60.5494755
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed936"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 17315",
+      "latdec": 58.1505027,
+      "londec": -134.2761203,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -134.2761203,
+        58.1505027
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed924"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 16706",
+      "latdec": 60.795108,
+      "londec": -148.533492,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -148.533492,
+        60.795108
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed933"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 17315",
+      "latdec": 58.3462529,
+      "londec": -134.5245585,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "covers and uncovers",
+      "coordinates": [
+        -134.5245585,
+        58.3462529
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed935"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 17315",
+      "latdec": 58.2006114,
+      "londec": -134.2565702,
+      "gp_quality": "",
+      "depth": 14.6,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "least depth known",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -134.2565702,
+        58.2006114
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8fc"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 19.7738743,
+      "londec": -72.1836319,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -72.1836319,
+        19.7738743
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed918"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 16646",
+      "latdec": 59.3442222,
+      "londec": -151.8216321,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -151.8216321,
+        59.3442222
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed925"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 16706",
+      "latdec": 60.778464,
+      "londec": -148.663507,
+      "gp_quality": "",
+      "depth": 9.3,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "least depth known",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -148.663507,
+        60.778464
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed928"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, nondangerous",
+      "chart": "US,US,reprt,17thGCD,LNM 39/97",
+      "latdec": 60.1258508,
+      "londec": -147.8935974,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -147.8935974,
+        60.1258508
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed927"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,H-11497",
+      "latdec": 60.5821239,
+      "londec": -145.7847141,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -145.7847141,
+        60.5821239
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed929"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,H-11497",
+      "latdec": 60.5798336,
+      "londec": -145.7930699,
+      "gp_quality": "",
+      "depth": 5.7,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "least depth known",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -145.7930699,
+        60.5798336
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed93a"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 17317",
+      "latdec": 59.4781683,
+      "londec": -135.3379538,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -135.3379538,
+        59.4781683
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed93b"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 17317",
+      "latdec": 59.2835876,
+      "londec": -135.4687934,
+      "gp_quality": "",
+      "depth": 10.6,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "least depth known",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -135.4687934,
+        59.2835876
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa2df35c7fbdbaed8f9"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,reprt,L-1453/14",
+      "latdec": 19.4462624,
+      "londec": -72.7016067,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -72.7016067,
+        19.4462624
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed92d"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,H-11497",
+      "latdec": 60.5845708,
+      "londec": -145.786321,
+      "gp_quality": "",
+      "depth": 6,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "least depth known",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -145.786321,
+        60.5845708
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed92e"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 16682",
+      "latdec": 60.1232272,
+      "londec": -149.4218664,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "covers and uncovers",
+      "coordinates": [
+        -149.4218664,
+        60.1232272
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed926"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Visible",
+      "chart": "US,US,graph,Chart 16710",
+      "latdec": 60.5798022,
+      "londec": -145.7963845,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "",
+      "watlev": "always dry",
+      "coordinates": [
+        -145.7963845,
+        60.5798022
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed904"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 16762",
+      "latdec": 58.662951,
+      "londec": -137.718712,
+      "gp_quality": "",
+      "depth": "",
+      "sounding_type": "",
+      "history": "",
+      "quasou": "depth unknown",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -137.718712,
+        58.662951
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "578f6fa3df35c7fbdbaed919"
+      },
+      "recrd": "",
+      "vesslterms": "",
+      "feature_type": "Wrecks - Submerged, dangerous",
+      "chart": "US,US,graph,Chart 16646",
+      "latdec": 59.3202083,
+      "londec": -151.9765228,
+      "gp_quality": "",
+      "depth": 8.8,
+      "sounding_type": "",
+      "history": "",
+      "quasou": "least depth known",
+      "watlev": "always under water/submerged",
+      "coordinates": [
+        -151.9765228,
+        59.3202083
+      ]
+    }
+  ]
+}
