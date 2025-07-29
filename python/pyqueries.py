@@ -9,9 +9,9 @@ def export_db_as_single_file(db_name, uri="mongodb://localhost:27017/"):
 
     data = {}
     for collection_name in db.list_collection_names():
-        print(f"Extraction de {collection_name} (100 premiers documents)")
+        print(f"Extraction de {collection_name} (10 premiers documents)")
         collection = db[collection_name]
-        documents = list(collection.find().limit(100))
+        documents = list(collection.find().limit(10))
         data[collection_name] = documents
 
     filename = f"{db_name}.json"
