@@ -561,3 +561,248 @@ db.listingsAndReviews.find({
 
 #########################
 
+db.listingsAndReviews.explain("executionStats").find({
+  "address.country": "Spain"
+}).sort({
+  "price": 1
+})
+
+db.listingsAndReviews.createIndex({
+  "address.country": 1,
+  "price": 1
+})
+
+db.movies.createIndex({
+  "title": 1,
+  "year": 1
+})
+
+db.movies.find(
+  { "year": { "$gt": 2010 } },
+  { "_id": 0, "title": 1, "year": 1 }
+)
+
+db.movies.explain("executionStats").find(
+  { "year": { "$gt": 2010 } },
+  { "_id": 0, "title": 1, "year": 1 }
+)
+
+db.listingsAndReviews.createIndex(
+  {
+    "name": "text",
+    "summary": "text"
+  },
+  {
+    "weights": {
+      "name": 10,
+      "summary": 5
+    }
+  }
+)
+
+db.listingsAndReviews.find(
+  // 1. Filtre de recherche texte
+  {
+    "$text": { "$search": "beautiful cozy" }
+  },
+  // 2. Projection des champs à afficher
+  {
+    "name": 1,
+    "summary": 1,
+    "_id": 0,
+    "score": { "$meta": "textScore" }
+  }
+)
+// 3. Tri par score de pertinence décroissant
+.sort({
+  "score": { "$meta": "textScore" }
+})
+
+################################
+
+db.listingsAndReviews.aggregate([
+  // Étape 1 : Filtrer le plus tôt possible
+  {
+    "$match": { "address.market": "New York" }
+  },
+  // Étape 2 : Trier le jeu de données réduit
+  {
+    "$sort": { "price": -1 }
+  },
+  // Étape 3 : Limiter les résultats
+  {
+    "$limit": 10
+  },
+  // Étape 4 : Projeter uniquement les champs nécessaires
+  {
+    "$project": {
+      "_id": 0,
+      "name": 1,
+      "price": 1,
+      "address.market": 1
+    }
+  }
+])
+
+VS
+
+db.listingsAndReviews.createIndex({
+  "address.market": 1,
+  "price": -1
+})
+
+---------------------
+
+db.comments.aggregate([
+  // Étape 1 : Joindre avec la collection 'movies'
+  {
+    "$lookup": {
+      "from": "movies",
+      "localField": "movie_id",
+      "foreignField": "_id",
+      "as": "movie_details"
+    }
+  },
+  // Étape 2 : Déconstruire le tableau pour un accès facile
+  {
+    "$unwind": "$movie_details"
+  },
+  // Étape 3 : Filtrer TÔT pour ne garder que les films récents
+  {
+    "$match": { "movie_details.year": { "$gt": 2000 } }
+  },
+  // Étape 4 : Grouper le jeu de données DÉJÀ filtré (beaucoup plus petit)
+  {
+    "$group": {
+      "_id": "$movie_id",
+      "title": { "$first": "$movie_details.title" }, // Garder le titre
+      "commentCount": { "$sum": 1 }
+    }
+  },
+  // Étape 5 : Projeter le résultat final
+  {
+    "$project": {
+      "_id": 0,
+      "title": 1,
+      "commentCount": 1
+    }
+  }
+])
+
+VS
+
+db.comments.aggregate([
+    {
+        "$lookup": {
+            "from": "movies",
+            "let": { "id": "$movie_id" },
+            "pipeline": [
+                // Filtre sur la collection 'movies' AVANT la jointure
+                { "$match":
+                    { "$expr":
+                        { "$and":
+                            [
+                                { "$eq": [ "$_id",  "$$id" ] },
+                                { "$gt": [ "$year", 2000 ] }
+                            ]
+                        }
+                    }
+                }
+            ],
+            "as": "movie_details"
+        }
+    },
+    // On ne garde que les commentaires pour lesquels un film a été trouvé
+    {
+        "$match": { "movie_details": { "$ne": [] } }
+    },
+    {
+        "$group": {
+            "_id": "$movie_id",
+            "title": { "$first": { "$arrayElemAt": ["$movie_details.title", 0] } },
+            "commentCount": { "$sum": 1 }
+        }
+    },
+    {
+        "$project": {
+            "_id": 0,
+            "title": 1,
+            "commentCount": 1
+        }
+    }
+])
+
+###########################
+
+Analyse du Problème : Le "Hot Shard"
+Utiliser un champ qui augmente de manière monotone comme saleDate (ou l'_id par défaut) comme clé de sharding avec une stratégie par plage est une très mauvaise idée.
+
+Le Problème : Avec un sharding par plage, les données sont réparties en intervalles. Une clé comme saleDate garantit que toutes les nouvelles insertions (les ventes en temps réel) auront la valeur la plus élevée. Par conséquent, toutes ces nouvelles écritures seront dirigées vers un seul et même shard : celui qui contient la plage de dates la plus récente.
+
+Le "Hot Shard" : Ce phénomène est appelé "hot shard" (ou shard chaud). Un shard devient "chaud" lorsqu'il reçoit une part disproportionnée du trafic. Pendant que ce shard est surchargé, les autres shards du cluster restent inactifs ou "froids", ne recevant aucune nouvelle écriture.
+
+Impact sur les Performances d'Écriture
+L'impact d'un "hot shard" est désastreux pour les performances :
+
+Goulot d'étranglement : Le shard chaud devient un goulot d'étranglement. La capacité d'écriture de l'ensemble de votre cluster n'est plus la somme de tous vos shards, mais elle est limitée à la capacité de ce seul shard surchargé.
+
+Annulation des bénéfices du sharding : L'objectif du sharding est de distribuer la charge. Avec un hot shard, vous avez la complexité d'une architecture distribuée sans en avoir les bénéfices de performance.
+
+Propositions de Solutions
+Pour distribuer uniformément les écritures, voici deux approches bien plus efficaces.
+
+1. Partitionnement par Hachage (Hashed Sharding)
+Cette stratégie applique une fonction de hachage à la valeur de la clé, ce qui garantit une distribution aléatoire et uniforme des données à travers les shards.
+
+Champ à utiliser : Le champ _id est un excellent candidat. Chaque _id est unique. En hachant cette valeur, vous vous assurez que deux ventes consécutives seront très probablement écrites sur des shards différents, répartissant ainsi la charge d'écriture de manière parfaitement équilibrée.
+
+Commande : sh.shardCollection("supplies.sales", { "_id": "hashed" })
+
+2. Partitionnement par Plages (Ranged Sharding) - Amélioré
+On peut toujours utiliser un sharding par plage, à condition de choisir une clé composée qui ne soit pas monotone.
+
+Stratégie : On combine un champ à haute cardinalité (qui a beaucoup de valeurs différentes, comme storeLocation ou customer.email) avec le champ monotone.
+
+Clé proposée : { "storeLocation": 1, "saleDate": 1 }
+
+Pourquoi c'est mieux ? Les écritures seront d'abord distribuées entre les différents shards en fonction du magasin (storeLocation). Il n'y aura plus un seul "hot shard" pour toutes les ventes, mais plusieurs "points chauds" répartis sur le cluster, un pour chaque magasin actif. La charge est donc bien mieux distribuée.
+
+----------------------------
+
+Choix de la Clé de Sharding Idéale
+Pour ce cas d'usage, la clé de sharding idéale est sans conteste le champ utilisé dans la majorité des requêtes.
+
+Clé de Sharding Idéale : { "address.country": 1 }
+
+Justification : Le besoin principal de l'application est de rechercher des logements à l'intérieur d'un même pays. En choisissant address.country comme clé, vous vous assurez que tous les documents pour un pays donné (par exemple, "Spain") sont physiquement stockés ensemble sur le même shard. Cela aligne parfaitement l'architecture physique des données avec le modèle d'accès logique de l'application.
+
+Avantages : Éviter les Requêtes "Scatter-Gather"
+Le principal avantage de ce choix est l'optimisation des requêtes.
+
+Quand une requête comme db.listingsAndReviews.find({ "address.country": "Spain" }) est envoyée, le routeur de requêtes de MongoDB (mongos) consulte ses métadonnées et sait exactement sur quel shard se trouvent les données pour l'Espagne.
+
+Requête Ciblée : La requête est envoyée uniquement au shard pertinent.
+
+Évitement du "Scatter-Gather" : Le routeur n'a pas besoin de diffuser la requête à tous les shards du cluster pour ensuite rassembler les résultats (ce qui est la définition d'une requête "scatter-gather").
+
+Cela rend la grande majorité des recherches extrêmement rapides et efficaces, car elles ne sollicitent qu'une petite partie du cluster.
+
+Inconvénients Potentiels et Solutions
+Le principal inconvénient de cette stratégie est le risque de déséquilibre des données, qui peut mener au phénomène de "hot shard".
+
+Problème : Si un pays, par exemple les États-Unis, contient 10 fois plus de logements que n'importe quel autre pays, le shard hébergeant les données américaines deviendra un "hot shard". Il supportera beaucoup plus de stockage, de requêtes et de charge que les autres, annulant ainsi une partie des bénéfices de la distribution de la charge.
+
+Comment atténuer ce problème ?
+La meilleure façon de gérer ce risque est d'utiliser une clé de sharding composée. On garde le pays comme premier critère pour l'efficacité des requêtes, et on ajoute un deuxième champ pour mieux distribuer les données à l'intérieur d'un même pays.
+
+Solution Proposée : Clé Composée avec Hachage
+
+Nouvelle Clé : { "address.country": 1, "_id": "hashed" }
+
+Fonctionnement :
+
+Les données sont d'abord réparties par pays.
+
+Ensuite, à l'intérieur de chaque pays, les documents sont distribués de manière aléatoire et uniforme en fonction du hachage de leur _id.
+
+Avantage : Cela empêche un pays très populaire de créer un unique "hot chunk" (un bloc de données massif). Même si toutes les données des États-Unis sont sur le même shard, elles seront réparties sur de nombreux chunks différents à l'intérieur de ce shard, ce qui équilibre mieux la charge et facilite la migration de données si nécessaire.
