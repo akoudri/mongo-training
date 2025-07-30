@@ -78,6 +78,18 @@ sh.addShard('shard3rs/shard3svr1:27017,shard3svr2:27017,shard3svr3:27017')
 echo "Waiting for shards to be added..."
 sleep 10
 
+# Verify cluster is ready for sharding operations
+echo "Verifying cluster is ready..."
+for i in {1..5}; do
+  if docker exec -it mongos1 mongosh --eval "sh.status()" >/dev/null 2>&1; then
+    echo "Cluster is ready!"
+    break
+  else
+    echo "Waiting for cluster to be ready... (attempt $i/5)"
+    sleep 5
+  fi
+done
+
 # Check cluster status
 echo "Checking cluster status..."
 docker exec -it mongos1 mongosh --eval "sh.status()"
