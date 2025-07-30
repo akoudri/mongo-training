@@ -1,0 +1,563 @@
+db.posts.find().limit(10)
+db.posts.find({ "author": "machine" })
+db.listingsAndReviews.find({
+  "address.market": "Rio De Janeiro",
+  "accommodates": { "$gte": 4 }
+})
+
+db.listingsAndReviews.find({
+  "price": { "$lt": 100 },
+  "review_scores.review_scores_cleanliness": 10
+})
+##############
+db.posts.insertOne({
+  "title": "MBSE: Theoretical Foundations",
+  "author": "Ali Koudri",
+  "body": "Introduction au MBSE",
+  "tags": ["engineering", "system", "complex"],
+  "comments": []
+})
+
+db.posts.updateOne(
+  { "title": "US Constitution" },
+  { "$push": { "tags": "law" } }
+)
+
+db.posts.updateMany(
+  { "title": "US Constitution" },
+  { "$addToSet": { "tags": "law" } }
+)
+
+db.sales.updateOne(
+  {
+    "_id": ObjectId("5bd761dcae323e45a93ccfe8"),
+    "items.name": "pens"
+  },
+  { "$set": { "items.$.quantity": 10 } }
+)
+
+db.posts.updateOne(
+  { "title": "Gettysburg Address" },
+  { "$pullAll": { "tags": ["civil", "war"] } }
+)
+
+########################
+
+db.sales.bulkWrite([
+  // 1. insertOne : Nouvelle vente à New York
+  {
+    "insertOne": {
+      "document": {
+        "saleDate": new Date(),
+        "items": [
+          { "name": "laptop", "tags": ["electronics", "school", "office"], "price": NumberDecimal("899.99"), "quantity": 1 },
+          { "name": "backpack", "tags": ["school", "travel"], "price": NumberDecimal("45.50"), "quantity": 1 }
+        ],
+        "storeLocation": "New York",
+        "customer": { "gender": "M", "age": 34, "email": "new.customer@example.com", "satisfaction": 4 },
+        "couponUsed": false,
+        "purchaseMethod": "Online"
+      }
+    }
+  },
+
+  // 2. updateOne : Mettre à jour la satisfaction client
+  {
+    "updateOne": {
+      "filter": { "_id": ObjectId("5bd761dcae323e45a93ccfe8") },
+      "update": { "$set": { "customer.satisfaction": 5 } }
+    }
+  },
+
+  // 3. updateMany : Ajouter un champ d'audit pour Denver
+  {
+    "updateMany": {
+      "filter": { "storeLocation": "Denver" },
+      "update": { "$set": { "audit_required": true } }
+    }
+  },
+
+  // 4. deleteMany : Supprimer les ventes par téléphone
+  {
+    "deleteMany": {
+      "filter": { "purchaseMethod": "Phone" }
+    }
+  },
+
+  // 5. replaceOne : Remplacer un document erroné
+  {
+    "replaceOne": {
+      "filter": { "_id": ObjectId("5bd761dcae323e45a93ccff0") },
+      "replacement": {
+        "saleDate": ISODate("2016-12-01T12:00:00Z"), // Date corrigée
+        "items": [
+          { "name": "envelopes", "tags": ["stationery", "office"], "price": NumberDecimal("10.99"), "quantity": 1 }
+        ],
+        "storeLocation": "San Diego", // Lieu corrigé
+        "customer": { "gender": "F", "age": 29, "email": "fixed.customer@example.com", "satisfaction": 5 },
+        "couponUsed": false,
+        "purchaseMethod": "In store"
+      }
+    }
+  }
+])
+
+##################################
+
+db.posts.updateMany(
+  { }, // Filtre vide pour cibler tous les documents
+  { "$pull": { "comments": { "author": "Elizabet Kleine" } } }
+)
+
+db.sales.updateMany(
+  { "storeLocation": "Denver" },
+  { "$pull": { "items": { "name": "notepad" } } }
+)
+
+db.listingsAndReviews.updateOne(
+  { "_id": "1003530" },
+  { "$unset": { "neighborhood_overview": "" } }
+)
+
+db.listingsAndReviews.deleteMany({
+  "address.country": "Brazil",
+  "price": { "$gt": 500 }
+})
+
+#######################################
+use analytics
+
+// Ajoute une balance de 5000 au compte source
+db.accounts.updateOne(
+  { "account_id": 100238 },
+  { "$set": { "balance": 5000 } }
+)
+
+// Ajoute une balance de 5000 au compte de destination
+db.accounts.updateOne(
+  { "account_id": 100282 },
+  { "$set": { "balance": 5000 } }
+)
+
+// --- DÉBUT DU SCRIPT DE TRANSACTION ---
+
+// 1. Démarrer une session
+const session = db.getMongo().startSession();
+
+// 2. Démarrer la transaction
+session.startTransaction();
+
+try {
+  // 3. Récupérer les collections à travers la session
+  const accountsCollection = session.getDatabase("analytics").accounts;
+
+  // 4. Débiter le compte source (avec vérification du solde)
+  const debitResult = accountsCollection.updateOne(
+    { "account_id": 100238, "balance": { "$gte": 500 } }, // Filtre : vérifie que le solde est suffisant
+    { "$inc": { "balance": -500 } }
+  );
+
+  // Si aucun document n'a été modifié, le solde était insuffisant. On lève une erreur.
+  if (debitResult.modifiedCount === 0) {
+    throw new Error("Solde insuffisant sur le compte source ou compte inexistant.");
+  }
+
+  // 5. Créditer le compte de destination
+  accountsCollection.updateOne(
+    { "account_id": 100282 },
+    { "$inc": { "balance": 500 } }
+  );
+
+  // 6. Valider la transaction si tout s'est bien passé
+  session.commitTransaction();
+  print("✅ Transaction validée avec succès !");
+
+} catch (error) {
+  // 7. Annuler la transaction en cas d'erreur
+  session.abortTransaction();
+  print("❌ Erreur durant la transaction. Opérations annulées.");
+  print("Raison : " + error);
+
+} finally {
+  // 8. Terminer la session pour libérer les ressources
+  session.endSession();
+  print("🔚 Session terminée.");
+}
+
+// --- FIN DU SCRIPT DE TRANSACTION ---
+
+db.accounts.find(
+  { "account_id": { "$in": [100238, 100282] } },
+  { "account_id": 1, "balance": 1, "_id": 0 }
+)
+
+###############################################
+
+db.sales.aggregate([
+  {
+    "$group": {
+      "_id": "$storeLocation",
+      "nombreDeVentes": { "$sum": 1 }
+    }
+  },
+  {
+    "$sort": { "nombreDeVentes": -1 }
+  }
+])
+
+db.sales.aggregate([
+  {
+    "$group": {
+      "_id": null, // Regroupe tous les documents ensemble
+      "ageMoyen": { "$avg": "$customer.age" }
+    }
+  }
+])
+
+db.sales.aggregate([
+  {
+    "$unwind": "$items"
+  },
+  {
+    "$group": {
+      "_id": "$storeLocation",
+      "chiffreAffairesTotal": {
+        "$sum": { "$multiply": ["$items.price", "$items.quantity"] }
+      }
+    }
+  },
+  {
+    "$sort": { "chiffreAffairesTotal": -1 }
+  }
+])
+
+db.sales.aggregate([
+  {
+    "$group": {
+      "_id": "$customer.satisfaction",
+      "nombreDeVentes": { "$sum": 1 }
+    }
+  },
+  {
+    "$sort": { "_id": 1 } // Trie par niveau de satisfaction (1, 2, 3...)
+  }
+])
+
+db.sales.aggregate([
+  {
+    "$match": { "purchaseMethod": "In store" }
+  },
+  {
+    "$unwind": "$items"
+  },
+  {
+    "$group": {
+      "_id": "$storeLocation",
+      "chiffreAffairesTotalEnMagasin": {
+        "$sum": { "$multiply": ["$items.price", "$items.quantity"] }
+      }
+    }
+  },
+  {
+    "$sort": { "chiffreAffairesTotalEnMagasin": -1 }
+  }
+])
+
+// Sur la base 'analytics', collection 'accounts'
+db.accounts.aggregate([
+  { "$unwind": "$products" },
+  { "$sortByCount": "$products" }
+])
+
+// Sur la base 'analytics', collection 'transactions'
+db.transactions.aggregate([
+  { "$unwind": "$transactions" },
+  { "$match": { "transactions.transaction_code": "buy" } },
+  {
+    "$group": {
+      "_id": "$account_id",
+      "montantTotalAchat": {
+        "$sum": { "$toDouble": "$transactions.total" }
+      }
+    }
+  }
+])
+
+// Sur la base 'airbnb', collection 'listingsAndReviews'
+db.listingsAndReviews.aggregate([
+  { "$group": { "_id": "$address.country", "nombreDeLogements": { "$sum": 1 } } },
+  { "$sort": { "nombreDeLogements": -1 } },
+  { "$limit": 5 }
+])
+
+// Sur la base 'mflix', collection 'comments'
+db.comments.aggregate([
+  {
+    "$lookup": {
+      "from": "users",
+      "localField": "email",
+      "foreignField": "email",
+      "as": "detailsUtilisateur"
+    }
+  },
+  { "$limit": 5 } // Ajouté pour ne pas afficher des milliers de résultats
+])
+
+// Sur la base 'airbnb', collection 'listingsAndReviews'
+db.listingsAndReviews.aggregate([
+  { "$match": { "number_of_reviews": { "$gt": 50 } } },
+  {
+    "$group": {
+      "_id": "$property_type",
+      "scoreMoyen": { "$avg": "$review_scores.review_scores_rating" }
+    }
+  },
+  { "$sort": { "scoreMoyen": -1 } }
+])
+
+###############################
+
+db.posts.mapReduce(
+  function() { // map
+    if (this.tags) {
+      this.tags.forEach(tag => {
+        emit(tag, 1);
+      });
+    }
+  },
+  function(key, values) { // reduce
+    return Array.sum(values);
+  },
+  {
+    out: "tag_counts" // Sortie dans une nouvelle collection
+  }
+)
+
+// Pour voir le résultat :
+db.tag_counts.find().sort({ "value": -1 })
+
+VS
+
+db.posts.aggregate([
+  { "$unwind": "$tags" },
+  { "$sortByCount": "$tags" }
+])
+
+db.sales.mapReduce(
+  function() { // map
+    this.items.forEach(item => {
+      emit(item.name, item.quantity);
+    });
+  },
+  function(key, values) { // reduce
+    return Array.sum(values);
+  },
+  {
+    out: "product_quantities"
+  }
+)
+
+// Pour voir le résultat :
+db.product_quantities.find().sort({ "value": -1 })
+
+VS
+
+db.sales.aggregate([
+  { "$unwind": "$items" },
+  {
+    "$group": {
+      "_id": "$items.name", // On regroupe par le nom du produit
+      "quantiteTotale": { "$sum": "$items.quantity" }
+    }
+  },
+  { "$sort": { "quantiteTotale": -1 } }
+])
+
+// Sur la base 'airbnb', collection 'listingsAndReviews'
+db.listingsAndReviews.aggregate([
+  {
+    "$group": {
+      "_id": "$property_type",
+      "prixMoyen": { "$avg": "$price" }
+    }
+  },
+  {
+    "$sort": { "prixMoyen": -1 }
+  }
+])
+
+#####################################
+
+// Assurez-vous d'être sur la bonne base de données
+use supplies
+
+db.createCollection("validated_sales", {
+  validator: {
+    "$jsonSchema": {
+      "bsonType": "object",
+      "required": ["saleDate", "items", "storeLocation", "customer", "couponUsed", "purchaseMethod"],
+      "properties": {
+        "saleDate": {
+          "bsonType": "date",
+          "description": "doit être de type date et est obligatoire."
+        },
+        "storeLocation": {
+          "bsonType": "string",
+          "description": "doit être une chaîne de caractères et est obligatoire."
+        },
+        "couponUsed": {
+          "bsonType": "bool",
+          "description": "doit être un booléen et est obligatoire."
+        },
+        "purchaseMethod": {
+          "enum": ["Online", "In store"],
+          "description": "doit être 'Online' ou 'In store' et est obligatoire."
+        },
+        "customer": {
+          "bsonType": "object",
+          "required": ["gender", "age", "email", "satisfaction"],
+          "properties": {
+            "gender": {
+              "bsonType": "string"
+            },
+            "age": {
+              "bsonType": "int",
+              "minimum": 17, // Supérieur à 16
+              "description": "doit être un entier supérieur à 16."
+            },
+            "email": {
+              "bsonType": "string",
+              "pattern": "^.+@.+\\..+$", // Format email simple
+              "description": "doit être une adresse email valide et est obligatoire."
+            },
+            "satisfaction": {
+              "bsonType": "int",
+              "minimum": 1,
+              "maximum": 5,
+              "description": "doit être un entier entre 1 et 5."
+            }
+          }
+        },
+        "items": {
+          "bsonType": "array",
+          "minItems": 1, // Le tableau ne doit pas être vide
+          "items": {
+            "bsonType": "object",
+            "required": ["name", "tags", "price", "quantity"],
+            "properties": {
+              "name": { "bsonType": "string" },
+              "tags": { "bsonType": "array", "items": { "bsonType": "string" } },
+              "price": { "bsonType": "decimal" },
+              "quantity": { "bsonType": "int", "minimum": 1 } // Supérieur à 0
+            }
+          }
+        }
+      }
+    }
+  }
+})
+
+db.validated_sales.insertOne({
+  "saleDate": new Date(),
+  "items": [
+    { "name": "laptop", "tags": ["electronics"], "price": NumberDecimal("1200.00"), "quantity": 1 }
+  ],
+  "storeLocation": "New York",
+  "customer": { "gender": "F", "age": 30, "email": "test@example.com", "satisfaction": 5 },
+  "couponUsed": false,
+  "purchaseMethod": "Online"
+})
+
+db.validated_sales.insertOne({
+  "saleDate": new Date(),
+  "items": [{"name": "mouse", "tags": ["office"], "price": NumberDecimal("25.00"), "quantity": 1}],
+  "storeLocation": "Denver",
+  "couponUsed": true,
+  "purchaseMethod": "In store"
+})
+// Erreur attendue : Document failed validation (champ 'customer' requis)
+
+db.validated_sales.insertOne({
+  "saleDate": new Date(),
+  "items": [{"name": "keyboard", "tags": ["office", "gaming"], "price": NumberDecimal("75.00"), "quantity": 1}],
+  "storeLocation": "Seattle",
+  "customer": { "gender": "M", "age": 15, "email": "minor@example.com", "satisfaction": 4 },
+  "couponUsed": false,
+  "purchaseMethod": "Online"
+})
+// Erreur attendue : Document failed validation (âge minimum non respecté)
+
+db.validated_sales.insertOne({
+  "saleDate": new Date(),
+  "items": [], // Tableau vide, ce qui est interdit par minItems: 1
+  "storeLocation": "London",
+  "customer": { "gender": "M", "age": 55, "email": "shopper@example.co.uk", "satisfaction": 5 },
+  "couponUsed": false,
+  "purchaseMethod": "Online"
+})
+// Erreur attendue : Document failed validation (le tableau 'items' est trop court)
+
+db.validated_sales.insertOne({
+  "saleDate": new Date(),
+  "items": [{"name": "webcam", "tags": ["office"], "price": NumberDecimal("80.00"), "quantity": 1}],
+  "storeLocation": "Austin",
+  "customer": { "gender": "F", "age": 42, "email": "another@example.com", "satisfaction": 3 },
+  "couponUsed": true,
+  "purchaseMethod": "Phone" // Valeur non autorisée
+})
+// Erreur attendue : Document failed validation (valeur non présente dans l'enum)
+
+##########################################
+
+// Sur la base 'geospatial'
+use geospatial
+
+db.shipwrecks.createIndex({ "coordinates": "2dsphere" })
+
+db.shipwrecks.find({
+  "coordinates": {
+    "$near": {
+      "$geometry": {
+        "type": "Point",
+        "coordinates": [-74.0, 18.5]
+      }
+    }
+  }
+}).limit(5)
+
+db.shipwrecks.find({
+  "feature_type": "Wrecks - Visible",
+  "coordinates": {
+    "$geoIntersects": {
+      "$geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [ // Début du polygone
+            [-75.0, 18.0],
+            [-73.0, 18.0],
+            [-74.0, 19.0],
+            [-75.0, 18.0] // Fermeture du polygone
+          ]
+        ]
+      }
+    }
+  }
+})
+
+db.listingAndReviews.createIndex({ "address.location": "2dsphere" })
+
+const KILOMETERS_TO_RADIANS = 1 / 6378.1;
+
+db.listingsAndReviews.find({
+  "address.location": {
+    "$geoWithin": {
+      "$centerSphere": [
+        [-73.9857, 40.7580], // Coordonnées de Times Square
+        2 * KILOMETERS_TO_RADIANS // Rayon de 2 km converti en radians
+      ]
+    }
+  }
+})
+
+#########################
+
