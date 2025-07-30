@@ -211,6 +211,116 @@ public class ListingAndReviewController {
         return ResponseEntity.ok(stats);
     }
     
+    // ========== Like Feature Operations ==========
+    
+    /**
+     * Adds a like to a property listing.
+     * 
+     * @param listingId The ID of the listing to like
+     * @param userId The ID of the user who is liking the property
+     * @return ResponseEntity with success/failure message
+     */
+    @PostMapping("/{listingId}/like")
+    public ResponseEntity<String> addLike(
+            @PathVariable String listingId,
+            @RequestParam String userId) {
+        log.info("POST /api/listings/{}/like - Adding like by user: {}", listingId, userId);
+        
+        // Check if user has already liked this listing
+        if (service.hasUserLiked(listingId, userId)) {
+            return ResponseEntity.badRequest()
+                    .body("User " + userId + " has already liked this listing");
+        }
+        
+        boolean success = service.addLike(listingId, userId);
+        
+        if (success) {
+            return ResponseEntity.ok("Like added successfully to listing " + listingId);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
+    /**
+     * Removes a like from a property listing.
+     * 
+     * @param listingId The ID of the listing to unlike
+     * @param userId The ID of the user who is unliking the property
+     * @return ResponseEntity with success/failure message
+     */
+    @DeleteMapping("/{listingId}/like")
+    public ResponseEntity<String> removeLike(
+            @PathVariable String listingId,
+            @RequestParam String userId) {
+        log.info("DELETE /api/listings/{}/like - Removing like by user: {}", listingId, userId);
+        
+        // Check if user has actually liked this listing
+        if (!service.hasUserLiked(listingId, userId)) {
+            return ResponseEntity.badRequest()
+                    .body("User " + userId + " has not liked this listing");
+        }
+        
+        boolean success = service.removeLike(listingId, userId);
+        
+        if (success) {
+            return ResponseEntity.ok("Like removed successfully from listing " + listingId);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
+    /**
+     * Gets the current like count for a specific listing.
+     * 
+     * @param listingId The ID of the listing
+     * @return ResponseEntity with the like count
+     */
+    @GetMapping("/{listingId}/likes/count")
+    public ResponseEntity<Integer> getLikeCount(@PathVariable String listingId) {
+        log.info("GET /api/listings/{}/likes/count - Getting like count", listingId);
+        
+        int likeCount = service.getLikeCount(listingId);
+        
+        if (likeCount >= 0) {
+            return ResponseEntity.ok(likeCount);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+    
+    /**
+     * Checks if a user has liked a specific listing.
+     * 
+     * @param listingId The ID of the listing
+     * @param userId The ID of the user
+     * @return ResponseEntity with boolean result
+     */
+    @GetMapping("/{listingId}/likes/user/{userId}")
+    public ResponseEntity<Boolean> hasUserLiked(
+            @PathVariable String listingId,
+            @PathVariable String userId) {
+        log.info("GET /api/listings/{}/likes/user/{} - Checking if user has liked", listingId, userId);
+        
+        boolean hasLiked = service.hasUserLiked(listingId, userId);
+        return ResponseEntity.ok(hasLiked);
+    }
+    
+    /**
+     * Gets the full listing details including likes and fans information.
+     * This is useful to see the complete like data for a listing.
+     * 
+     * @param listingId The ID of the listing
+     * @return ResponseEntity with the listing including like information
+     */
+    @GetMapping("/{listingId}/with-likes")
+    public ResponseEntity<ListingAndReview> getListingWithLikes(@PathVariable String listingId) {
+        log.info("GET /api/listings/{}/with-likes - Getting listing with like information", listingId);
+        
+        Optional<ListingAndReview> listing = service.findById(listingId);
+        return listing.map(ResponseEntity::ok)
+                     .orElse(ResponseEntity.notFound().build());
+    }
+    
     // ========== Health Check ==========
     
     @GetMapping("/health")

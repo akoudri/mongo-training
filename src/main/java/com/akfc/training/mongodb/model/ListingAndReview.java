@@ -103,4 +103,8 @@ public class ListingAndReview {
     private ReviewScores reviewScores;
     
     private List<Review> reviews;
+    
+    // Like feature fields
+    private int likes;
+    private List<String> fans;
 }

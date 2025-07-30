@@ -207,6 +207,109 @@ public class ListingAndReviewService {
         return mongoTemplate.remove(query, ListingAndReview.class).getDeletedCount();
     }
     
+    // ========== Like Feature Operations ==========
+    
+    /**
+     * Adds a like to a property listing by incrementing the likes counter
+     * and adding the user ID to the fans list.
+     * 
+     * @param listingId The ID of the listing to like
+     * @param userId The ID of the user who is liking the property
+     * @return true if the like was successfully added, false if the listing was not found
+     */
+    public boolean addLike(String listingId, String userId) {
+        log.info("Adding like to listing: {} by user: {}", listingId, userId);
+        
+        // Build query to target the specific listing by ID
+        Query query = new Query(Criteria.where("id").is(listingId));
+        
+        // Build update operation using $inc and $push
+        Update update = new Update()
+                .inc("likes", 1)                    // Increment likes by 1
+                .push("fans", userId);              // Add userId to fans array
+        
+        // Execute the update operation
+        var result = mongoTemplate.updateFirst(query, update, ListingAndReview.class);
+        
+        boolean success = result.getModifiedCount() > 0;
+        if (success) {
+            log.info("Successfully added like to listing: {} by user: {}", listingId, userId);
+        } else {
+            log.warn("Failed to add like - listing not found: {}", listingId);
+        }
+        
+        return success;
+    }
+    
+    /**
+     * Removes a like from a property listing by decrementing the likes counter
+     * and removing the user ID from the fans list.
+     * 
+     * @param listingId The ID of the listing to unlike
+     * @param userId The ID of the user who is unliking the property
+     * @return true if the like was successfully removed, false if the listing was not found
+     */
+    public boolean removeLike(String listingId, String userId) {
+        log.info("Removing like from listing: {} by user: {}", listingId, userId);
+        
+        // Build query to target the specific listing by ID
+        Query query = new Query(Criteria.where("id").is(listingId));
+        
+        // Build update operation using $inc and $pull
+        Update update = new Update()
+                .inc("likes", -1)                   // Decrement likes by 1
+                .pull("fans", userId);              // Remove userId from fans array
+        
+        // Execute the update operation
+        var result = mongoTemplate.updateFirst(query, update, ListingAndReview.class);
+        
+        boolean success = result.getModifiedCount() > 0;
+        if (success) {
+            log.info("Successfully removed like from listing: {} by user: {}", listingId, userId);
+        } else {
+            log.warn("Failed to remove like - listing not found: {}", listingId);
+        }
+        
+        return success;
+    }
+    
+    /**
+     * Gets the current like count for a specific listing.
+     * 
+     * @param listingId The ID of the listing
+     * @return The number of likes, or -1 if listing not found
+     */
+    public int getLikeCount(String listingId) {
+        log.info("Getting like count for listing: {}", listingId);
+        
+        Query query = new Query(Criteria.where("id").is(listingId));
+        query.fields().include("likes");
+        
+        ListingAndReview listing = mongoTemplate.findOne(query, ListingAndReview.class);
+        
+        if (listing != null) {
+            return listing.getLikes();
+        } else {
+            log.warn("Listing not found: {}", listingId);
+            return -1;
+        }
+    }
+    
+    /**
+     * Checks if a user has already liked a specific listing.
+     * 
+     * @param listingId The ID of the listing
+     * @param userId The ID of the user
+     * @return true if the user has liked the listing, false otherwise
+     */
+    public boolean hasUserLiked(String listingId, String userId) {
+        log.info("Checking if user: {} has liked listing: {}", userId, listingId);
+        
+        Query query = new Query(Criteria.where("id").is(listingId).and("fans").is(userId));
+        
+        return mongoTemplate.exists(query, ListingAndReview.class);
+    }
+    
     // ========== Helper Classes for Aggregation Results ==========
     
     @lombok.Data
