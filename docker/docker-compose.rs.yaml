@@ -1,0 +1,52 @@
+services:
+  # MongoDB Replica Set - Primary
+  mongo-primary:
+    image: mongo:8.0
+    container_name: mongo-primary
+    command: mongod --replSet rs0 --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - mongo_primary_data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - mongodb-network
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+
+  # MongoDB Replica Set - Secondary 1
+  mongo-secondary1:
+    image: mongo:8.0
+    container_name: mongo-secondary1
+    command: mongod --replSet rs0 --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - mongo_secondary1_data:/data/db
+    ports:
+      - "27018:27017"
+    networks:
+      - mongodb-network
+    depends_on:
+      - mongo-primary
+
+  # MongoDB Replica Set - Secondary 2
+  mongo-secondary2:
+    image: mongo:8.0
+    container_name: mongo-secondary2
+    command: mongod --replSet rs0 --port 27017 --dbpath /data/db --bind_ip_all
+    volumes:
+      - mongo_secondary2_data:/data/db
+    ports:
+      - "27019:27017"
+    networks:
+      - mongodb-network
+    depends_on:
+      - mongo-primary
+
+volumes:
+  mongo_primary_data:
+  mongo_secondary1_data:
+  mongo_secondary2_data:
+
+networks:
+  mongodb-network:
+    driver: bridge
