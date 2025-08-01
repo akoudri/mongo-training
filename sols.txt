@@ -125,18 +125,18 @@ db.listingsAndReviews.deleteMany({
   "price": { "$gt": 500 }
 })
 
-#######################################
+####################TRANSACTIONS################
 use analytics
 
 // Ajoute une balance de 5000 au compte source
 db.accounts.updateOne(
-  { "account_id": 100238 },
+  { "account_id": 137994 },
   { "$set": { "balance": 5000 } }
 )
 
 // Ajoute une balance de 5000 au compte de destination
 db.accounts.updateOne(
-  { "account_id": 100282 },
+  { "account_id": 977982 },
   { "$set": { "balance": 5000 } }
 )
 
@@ -154,7 +154,7 @@ try {
 
   // 4. Débiter le compte source (avec vérification du solde)
   const debitResult = accountsCollection.updateOne(
-    { "account_id": 100238, "balance": { "$gte": 500 } }, // Filtre : vérifie que le solde est suffisant
+    { "account_id": 137994, "balance": { "$gte": 500 } }, // Filtre : vérifie que le solde est suffisant
     { "$inc": { "balance": -500 } }
   );
 
@@ -165,7 +165,7 @@ try {
 
   // 5. Créditer le compte de destination
   accountsCollection.updateOne(
-    { "account_id": 100282 },
+    { "account_id": 977982 },
     { "$inc": { "balance": 500 } }
   );
 
@@ -188,11 +188,11 @@ try {
 // --- FIN DU SCRIPT DE TRANSACTION ---
 
 db.accounts.find(
-  { "account_id": { "$in": [100238, 100282] } },
+  { "account_id": { "$in": [137994, 977982] } },
   { "account_id": 1, "balance": 1, "_id": 0 }
 )
 
-###############################################
+######################AGGS##################
 
 db.sales.aggregate([
   {
@@ -254,13 +254,13 @@ db.sales.aggregate([
   {
     "$group": {
       "_id": "$storeLocation",
-      "chiffreAffairesTotalEnMagasin": {
-        "$sum": { "$multiply": ["$items.price", "$items.quantity"] }
+      "nbVentesEnMagasin": {
+        "$sum": "$items.quantity"
       }
     }
   },
   {
-    "$sort": { "chiffreAffairesTotalEnMagasin": -1 }
+    "$sort": { "nbVentesEnMagasin": -1 }
   }
 ])
 
@@ -387,7 +387,7 @@ db.listingsAndReviews.aggregate([
   }
 ])
 
-#####################################
+##################VALIDATION###################
 
 // Assurez-vous d'être sur la bonne base de données
 use supplies
@@ -508,7 +508,7 @@ db.validated_sales.insertOne({
 })
 // Erreur attendue : Document failed validation (valeur non présente dans l'enum)
 
-##########################################
+##################GEO########################
 
 // Sur la base 'geospatial'
 use geospatial
@@ -560,7 +560,7 @@ db.listingsAndReviews.find({
   }
 })
 
-#########################
+############INDEX#############
 
 db.listingsAndReviews.explain("executionStats").find({
   "address.country": "Spain"
