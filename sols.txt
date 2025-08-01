@@ -1,3 +1,4 @@
+###########Recherche###############
 db.posts.find().limit(10)
 db.posts.find({ "author": "machine" })
 db.listingsAndReviews.find({
@@ -9,7 +10,7 @@ db.listingsAndReviews.find({
   "price": { "$lt": 100 },
   "review_scores.review_scores_cleanliness": 10
 })
-##############
+##############Mise à jour##############
 db.posts.insertOne({
   "title": "MBSE: Theoretical Foundations",
   "author": "Ali Koudri",
@@ -41,7 +42,7 @@ db.posts.updateOne(
   { "$pullAll": { "tags": ["civil", "war"] } }
 )
 
-########################
+########################BULKS#############
 
 db.sales.bulkWrite([
   // 1. insertOne : Nouvelle vente à New York
@@ -102,7 +103,7 @@ db.sales.bulkWrite([
   }
 ])
 
-##################################
+#####################DELETION######################
 
 db.posts.updateMany(
   { }, // Filtre vide pour cibler tous les documents
